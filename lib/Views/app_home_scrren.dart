@@ -65,6 +65,12 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
+
+            const SizedBox(height: 20),
+
+            // Banner
+            const MyBanner(),
+
           
       ),
     );
