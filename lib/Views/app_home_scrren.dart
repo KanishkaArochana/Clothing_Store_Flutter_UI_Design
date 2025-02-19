@@ -167,7 +167,39 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
-          
+            // For Current Items
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  fashionEcommerceApp.length,
+                  (index) {
+                    final eCommerceItems = fashionEcommerceApp[index];
+                    return Padding(
+                      padding: index == 0
+                          ? const EdgeInsets.symmetric(horizontal: 20)
+                          : const EdgeInsets.only(right: 20),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ItemsDetailScreen(
+                                eCommerceApp: eCommerceItems,
+                              ),
+                            ),
+                          );
+                        },
+                        child: CuratedItems(
+                          eCommerceItems: eCommerceItems,
+                          size: size,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
