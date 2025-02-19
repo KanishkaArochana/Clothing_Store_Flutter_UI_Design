@@ -97,6 +97,27 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
+             // Category List
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  category.length,
+                  (index) => InkWell(
+                    onTap: () {
+                      //Filter Products Based Selected Category
+                      final filterItems = fashionEcommerceApp
+                          .where((item) =>
+                              item.category.toLowerCase() ==
+                              category[index].name.toLowerCase())
+                          .toList();
+
+                     
+                  ),
+                ),
+              ),
+            ),
+
           
       ),
     );
