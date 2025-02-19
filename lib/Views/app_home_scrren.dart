@@ -65,13 +65,12 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
-
             const SizedBox(height: 20),
 
             // Banner
             const MyBanner(),
 
-             // Shop By Category Section
+            // Shop By Category Section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               child: Row(
@@ -142,7 +141,35 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
+            // Shop By Category Section
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Curated For You",
+                    style: TextStyle(
+                        fontSize: 16,
+                        letterSpacing: 0,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                      fontSize: 16,
+                      letterSpacing: 0,
+                      color: Colors.black45,
+                    ),
+                  )
+                ],
+              ),
+            ),
+
           
+          ],
+        ),
       ),
     );
   }
