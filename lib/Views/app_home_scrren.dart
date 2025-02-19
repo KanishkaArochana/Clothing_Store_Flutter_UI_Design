@@ -97,7 +97,7 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
               ),
             ),
 
-             // Category List
+            // Category List
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -112,7 +112,31 @@ class _AppHomeScreenState extends State<AppHomeScreen> {
                               category[index].name.toLowerCase())
                           .toList();
 
-                     
+                      //Navigate to the CategoryItems Screen with Filtered List
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => CategoryItems(
+                            category: category[index].name,
+                            categoryItems: filterItems,
+                          ),
+                        ),
+                      );
+                    }, // Added onTap to InkWell
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.amberAccent,
+                            backgroundImage: AssetImage(category[index].image),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(category[index].name),
+                      ],
+                    ),
                   ),
                 ),
               ),
