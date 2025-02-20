@@ -57,8 +57,59 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
           SizedBox(width: 20),
         ],
       ),
+      body: ListView(
+        children: [
+          SizedBox(
+            // color: Colors.amber,
+            height: size.height * 0.46,
+            width: size.width,
+            child: PageView.builder(
+              onPageChanged: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+                // If can multiple Image
+              },
+              itemCount: 3,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Hero(
+                      tag: widget.eCommerceApp.image,
+                      child: Image.asset(
+                        widget.eCommerceApp.image,
+                        height: size.height * 0.4,
+                        width: size.width * 0.85,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                          3,
+                          (index) => AnimatedContainer(
+                                duration: Duration(microseconds: 300),
+                                margin: EdgeInsets.only(right: 4),
+                                width: 7,
+                                height: 7,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: index == currentIndex
+                                      ? Colors.blue
+                                      : Colors.grey.shade400,
+                                ),
+                              )),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+          
+          ),
       
-         
     );
   }
 }
