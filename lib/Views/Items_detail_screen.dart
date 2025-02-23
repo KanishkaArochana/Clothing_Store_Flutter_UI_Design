@@ -306,7 +306,7 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
           ),
         ],
       ),
-      //Button
+      //Buttons
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
