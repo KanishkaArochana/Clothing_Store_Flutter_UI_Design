@@ -107,6 +107,39 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
               },
             ),
           ),
+
+          Padding(
+            padding: EdgeInsets.all(18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "H&M",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black26,
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                      size: 17,
+                    ),
+                    Text(widget.eCommerceApp.rating.toString()),
+                    Text(
+                      "(${widget.eCommerceApp.review})",
+                      style: const TextStyle(
+                        color: Colors.black26,
+                      ),
+                    ),
+                    Spacer(),
+                    Icon(Icons.favorite_border),
+                  ],
+                ),
           
           ),
       
