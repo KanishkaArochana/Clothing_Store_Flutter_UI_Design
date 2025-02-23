@@ -107,7 +107,6 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
               },
             ),
           ),
-
           Padding(
             padding: EdgeInsets.all(18),
             child: Column(
@@ -140,7 +139,7 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                     Icon(Icons.favorite_border),
                   ],
                 ),
- Text(
+                Text(
                   widget.eCommerceApp.name,
                   maxLines: 1,
                   // overflow: TextOverflow.ellipsis,
@@ -172,9 +171,8 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                         ),
                       ),
                   ],
-                ),      
-
-                 SizedBox(height: 15),
+                ),
+                SizedBox(height: 15),
                 Text(
                   widget.eCommerceApp.description,
                   style: TextStyle(
@@ -183,9 +181,8 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                     color: Colors.black38,
                     letterSpacing: -.5,
                   ),
-                ),    
-
- SizedBox(height: 20),
+                ),
+                SizedBox(height: 20),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -239,7 +236,7 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                       ),
                     ),
 
-                     // For Size
+                    // For Size
                     SizedBox(
                       width: size.width / 2.4,
                       child: Column(
@@ -300,9 +297,72 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                             ),
                           ),
                         ],
-
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
-      
+        ],
+      ),
+      //Button
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        backgroundColor: Colors.white,
+        elevation: 0,
+        label: SizedBox(
+          width: size.width * 0.9,
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Iconsax.shopping_bag,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        "ADD TO CART",
+                        style: TextStyle(
+                          color: Colors.black,
+                          letterSpacing: -1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 18),
+                  color: Colors.black,
+                  child: Center(
+                    child: Text(
+                      "BUY NOW",
+                      style: TextStyle(
+                        color: Colors.white,
+                        letterSpacing: -1,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
