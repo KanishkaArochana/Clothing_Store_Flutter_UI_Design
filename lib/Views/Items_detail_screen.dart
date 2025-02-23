@@ -239,6 +239,68 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                       ),
                     ),
 
+                     // For Size
+                    SizedBox(
+                      width: size.width / 2.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //For Color
+                          Text(
+                            "Size",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: widget.eCommerceApp.size
+                                  .asMap()
+                                  .entries
+                                  .map((entry) {
+                                final int index = entry.key;
+                                final String size = entry.value;
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedSizeIndex = index;
+                                    });
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(right: 10, top: 10),
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: selectedSizeIndex == index
+                                          ? Colors.black
+                                          : Colors.white,
+                                      border: Border.all(
+                                        color: selectedSizeIndex == index
+                                            ? Colors.black
+                                            : Colors.black12,
+                                      ),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        size,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: selectedSizeIndex == index
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
+
           ),
       
     );
