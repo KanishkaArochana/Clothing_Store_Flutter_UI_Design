@@ -185,7 +185,59 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                   ),
                 ),    
 
-
+ SizedBox(height: 20),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: size.width / 2.1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //For Color
+                          Text(
+                            "Color",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: widget.eCommerceApp.fcolor
+                                  .asMap()
+                                  .entries
+                                  .map((entry) {
+                                final int index = entry.key;
+                                final color = entry.value;
+                                return Padding(
+                                  padding: EdgeInsets.only(top: 10, right: 10),
+                                  child: CircleAvatar(
+                                    radius: 18,
+                                    backgroundColor: color,
+                                    child: InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          selectedColorIndex =
+                                              index; //Update the selected Indexs
+                                        });
+                                      },
+                                      child: Icon(
+                                        Icons.check,
+                                        color: selectedColorIndex == index
+                                            ? Colors.white
+                                            : Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
 
           ),
       
