@@ -140,7 +140,53 @@ class _ItemsDetailScreenState extends State<ItemsDetailScreen> {
                     Icon(Icons.favorite_border),
                   ],
                 ),
-          
+ Text(
+                  widget.eCommerceApp.name,
+                  maxLines: 1,
+                  // overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    height: 1.5,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "\$${widget.eCommerceApp.price.toString()}.00",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.red,
+                        height: 1.5,
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    if (widget.eCommerceApp.isCheck == true)
+                      Text(
+                        "\$${widget.eCommerceApp.price + 255}.00",
+                        style: TextStyle(
+                          color: Colors.black26,
+                          decoration: TextDecoration.lineThrough,
+                          decorationColor: Colors.black26,
+                        ),
+                      ),
+                  ],
+                ),      
+
+                 SizedBox(height: 15),
+                Text(
+                  widget.eCommerceApp.description,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black38,
+                    letterSpacing: -.5,
+                  ),
+                ),    
+
+
+
           ),
       
     );
