@@ -56,6 +56,44 @@ class CategoryItems extends StatelessWidget {
                 ],
               ),
             ),
+
+             SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    filterCategory.length,
+                    (index) => Padding(
+                      padding: EdgeInsets.only(right: 5),
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.black12),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(filterCategory[index]),
+                            SizedBox(width: 5),
+                            index == 0
+                                ? Icon(
+                                    Icons.filter_list,
+                                    size: 15,
+                                  )
+                                : Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 15,
+                                  ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
            
             )
           ],
