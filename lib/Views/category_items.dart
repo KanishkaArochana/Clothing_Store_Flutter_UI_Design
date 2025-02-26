@@ -56,8 +56,7 @@ class CategoryItems extends StatelessWidget {
                 ],
               ),
             ),
-
-             SizedBox(height: 20),
+            SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
@@ -94,9 +93,8 @@ class CategoryItems extends StatelessWidget {
                 ),
               ),
             ),
-           
 
-  SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // Category List
             SingleChildScrollView(
@@ -130,8 +128,7 @@ class CategoryItems extends StatelessWidget {
                 ),
               ),
             ),
-
-             SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(
               child: categoryItems.isEmpty
                   ? Center(
@@ -198,7 +195,73 @@ class CategoryItems extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
+                              SizedBox(height: 7),
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "H&M",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black26,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                    size: 17,
+                                  ),
+                                  Text(item.rating.toString()),
+                                  Text(
+                                    "(${item.review})",
+                                    style: const TextStyle(
+                                      color: Colors.black26,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: size.width * 0.5,
+                                child: Text(
+                                  item.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    height: 1.5,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "\$${item.price.toString()}.00",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                      color: Colors.red,
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  if (item.isCheck == true)
+                                    Text(
+                                      "\$${item.price + 255}.00",
+                                      style: TextStyle(
+                                        color: Colors.black26,
+                                        decoration: TextDecoration.lineThrough,
+                                        decorationColor: Colors.black26,
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
             )
           ],
         ),
