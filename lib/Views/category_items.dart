@@ -95,6 +95,42 @@ class CategoryItems extends StatelessWidget {
               ),
             ),
            
+
+  SizedBox(height: 20),
+
+            // Category List
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  subcategory.length,
+                  (index) => InkWell(
+                    onTap: () {}, // Added onTap to InkWell
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.amber,
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage(subcategory[index].image),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(subcategory[index].name),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
             )
           ],
         ),
