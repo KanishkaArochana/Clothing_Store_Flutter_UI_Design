@@ -131,6 +131,74 @@ class CategoryItems extends StatelessWidget {
               ),
             ),
 
+             SizedBox(height: 20),
+            Expanded(
+              child: categoryItems.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No items available in this category.",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red,
+                        ),
+                      ),
+                    )
+                  : GridView.builder(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      itemCount: categoryItems.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.6,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                      ),
+                      itemBuilder: (context, index) {
+                        final item = categoryItems[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => ItemsDetailScreen(
+                                  eCommerceApp: item,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Hero(
+                                tag: item.image,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color:
+                                        const Color.fromARGB(255, 168, 197, 212),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(item.image),
+                                    ),
+                                  ),
+                                  height: size.height * 0.25,
+                                  width: size.width * 0.5,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(12),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        radius: 18,
+                                        backgroundColor: Colors.black26,
+                                        child: Icon(
+                                          Icons.favorite_border,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
             )
           ],
         ),
